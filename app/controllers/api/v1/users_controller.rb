@@ -1,13 +1,11 @@
 module Api::V1
   class UsersController < ApiController
+    include ApipieDescriptions
 
     skip_before_filter :authenticate_user_from_token,
       only: [:create, :reset_password, :verify_password_token, :verify_email_token]
 
-    def index
-      @users = User.all
-    end
-
+    apipie_users_create
     def create
       set_resource(resource_class.new(resource_params))
       if get_resource.save

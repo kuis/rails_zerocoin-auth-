@@ -1,6 +1,6 @@
 module Api::V1
   class AuthController < ApiController
-    
+    include ApipieDescriptions
 
     skip_before_filter :authenticate_user_from_token,
       only: [:create, :destroy]
@@ -8,7 +8,7 @@ module Api::V1
     skip_before_action :set_resource,
       only: [:destroy]
 
-    
+    apipie_auth_create
     def create
       if authenticate_user?
         find_or_create_api_key
@@ -18,6 +18,7 @@ module Api::V1
       end
     end
 
+    apipie_auth_destroy
     def destroy
       access_token = request.headers["HTTP_AUTHORIZATION"]
       ApiKey.where(access_token: access_token).destroy_all
