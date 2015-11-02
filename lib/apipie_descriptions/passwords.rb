@@ -19,7 +19,7 @@ module ApipieDescriptions::Passwords
     api :POST, "/passwords", "Change user password."
     param :user, Hash, required: true do
       param :email, String, required: true
-      param :password, String, required: true
+     
       
     end
     description <<-EOS
