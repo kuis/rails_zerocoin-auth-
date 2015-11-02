@@ -20,8 +20,7 @@ module ApipieDescriptions::Passwords
     param :user, Hash, required: true do
       param :email, String, required: true
       param :password, String, required: true
-      param :name, String, required: true
-      param :verified, [true, false]
+      
     end
     description <<-EOS
       If successful, it returns a <tt></tt> object with status <tt>201</tt>.
