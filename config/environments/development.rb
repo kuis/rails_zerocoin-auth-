@@ -53,6 +53,10 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+
+   # client = Parse.init :application_id => ENV['PARSE_APP_ID'],
+   #                    :api_key        => ENV['PARSE_API_KEY'],
+   #                    :quiet          => false
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
