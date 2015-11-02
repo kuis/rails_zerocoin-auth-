@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
+
   scope module: "api", defaults: { format: :json } do
     scope "api" do
       namespace :v1 do
         resource :auth,  only: [:create, :destroy], controller: "auth"
+        
+        resources :passwords
 
         resource :users do
           post "reset_password" => "users#reset_password"
