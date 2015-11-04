@@ -3,7 +3,7 @@ module Api::V1
     include ApipieDescriptions
 
     skip_before_filter :authenticate_user_from_token,
-      only: [:create, :reset_password, :verify_password_token, :verify_email_token]
+      only: [:create]
 
     apipie_users_create
     def create
@@ -13,15 +13,6 @@ module Api::V1
         render :create, status: :created
       else
         render_unprocessable
-      end
-    end
-
-    def show
-      @user = User.find(params[:id])
-      unless current_user.admin?
-        unless @user == current_user
-          redirect_to :back, :alert => "Access denied."
-        end
       end
     end
 

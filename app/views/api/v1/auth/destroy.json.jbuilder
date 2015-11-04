@@ -1,2 +1,2 @@
-son.success true
+json.success true
 json.status 200
