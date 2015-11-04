@@ -9,8 +9,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'dotenv-rails'
 #API
 gem 'apipie-rails'
+#gem 'braintree'
+gem "factory_girl_rails"
+gem "faker"
 
 group :development, :test do
+  gem "rspec-rails"
+  gem "rspec-collection_matchers"
+  gem "shoulda-matchers"
   gem 'byebug'
 end
 group :development do
@@ -40,4 +46,9 @@ group :development, :test do
 end
 group :production do
   gem 'rails_12factor'
+end
+
+group :test do
+  gem "webmock"
+  gem "simplecov", require: false
 end
