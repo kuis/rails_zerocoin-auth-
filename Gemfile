@@ -14,6 +14,7 @@ gem "factory_girl_rails"
 gem "faker"
 gem "braintree"
 gem "whenever"
+gem 'awesome_print'
 
 group :development, :test do
   gem "rspec-rails"

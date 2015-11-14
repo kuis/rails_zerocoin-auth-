@@ -10,6 +10,7 @@ module Api::V1
 
     apipie_auth_create
     def create
+    ap params
       if authenticate_user?
         find_or_create_api_key
       else
