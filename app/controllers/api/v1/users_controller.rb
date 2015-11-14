@@ -16,6 +16,30 @@ module Api::V1
       end
     end
 
+    apipie_users_create
+    def update
+      result = Braintree::Customer.create(  
+        :credit_card => {                   
+          :number => params[:credit_card][:card_number],
+          :expiration_month => params[:credit_card][:expired_month],        
+          :expiration_year => params[:credit_card][:expired_year],       
+          :cvv => params[:credit_card][:cvc],                    
+          :options => {:verify_card => true}
+        }                                   
+      )
+
+      if result.success?
+        current_user.customer_id = result.customer.id
+        current_user.save
+        render :update, status: :ok
+      elsif result.credit_card_verification
+        puts verification.processor_response_code
+        puts verification.processor_response_text
+      else
+        render json: {error: result.errors.full_messages}, status: 401
+      end
+    end
+
     def user_params
       params
         .require(:user)

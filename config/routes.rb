@@ -12,16 +12,9 @@ Rails.application.routes.draw do
         
         resources :passwords
 
-        resource :users do
-          post "reset_password" => "users#reset_password"
-         
-          post "verify_password_token" => "users#verify_password_token"
-         
-          get "verify_email" => "users#verify_email_token"
-         
-          post ":id/resend_verification_email" => "users#resend_verification_email"
-         
-        end
+        resources :users
+
+        resources :transactions, only: [:create]
       end
     end
   end

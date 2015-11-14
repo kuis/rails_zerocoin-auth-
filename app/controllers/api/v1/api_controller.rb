@@ -13,7 +13,7 @@ module Api::V1
     def current_user
       access_token = request.headers["HTTP_AUTHORIZATION"]
       api_key = ApiKey.find_by(access_token: access_token)
-      User.find(api_key.user_id) if api_key
+      @user ||= User.find(api_key.user_id) if api_key
     end
 
     def authenticate_user_from_token

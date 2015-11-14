@@ -12,6 +12,8 @@ gem 'apipie-rails'
 #gem 'braintree'
 gem "factory_girl_rails"
 gem "faker"
+gem "braintree"
+gem "whenever"
 
 group :development, :test do
   gem "rspec-rails"
