@@ -30,6 +30,14 @@ module ApipieDescriptions::Users
     apipie_clear(__method__)
   end
 
+  def apipie_users_update
+    api :POST, "/transactions", "[PUBLIC] Update Credit Card."
+    param :card_number, Integer, required:true
+    param :expired_month, Integer, required:true
+    param :expired_year, Integer, required:true
+    param :cvc, String, required:true
+  end
+
   def apipie_users_destroy
     api :DELETE, "/users/:id", "Deletes a User."
     param :id, Integer

@@ -16,7 +16,7 @@ module Api::V1
       end
     end
 
-    apipie_users_create
+    apipie_users_update
     def update
       result = Braintree::Customer.create(  
         :credit_card => {                   

@@ -1,6 +1,7 @@
 module ApipieDescriptions::Transactions
+  
   def apipie_transactions_create
-    api :POST, '/auth', '[PUBLIC] Authorizes a user account.'
+    api :POST, '/transactions', '[PUBLIC] Authorizes a user account.'
     param :amount,  Integer, required: true
     
     description <<-EOS
