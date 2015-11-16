@@ -31,7 +31,7 @@ module ApipieDescriptions::Users
   end
 
   def apipie_users_update
-    api :POST, "/users", "[PUBLIC] Validate Credit Card."
+    api :PUT, "/users/:id", "[PUBLIC] Validate Credit Card."
     param :card_number, Integer, required:true
     param :expired_month, Integer, required:true
     param :expired_year, Integer, required:true
